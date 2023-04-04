@@ -48,9 +48,9 @@ export const Header = () => {
     }
 
     // Delete todo function
-    const deleteTodo = (id) => {
+    const deleteTodo = (task) => {
         // New array with deleted todo
-        const newArr = todos.filter((_, index) => index !== id);
+        const newArr = todos.filter(item => item.task !== task);
         
         // Update state with deleted todo array
         setTodos(newArr)
@@ -60,15 +60,15 @@ export const Header = () => {
     };
     
     // Handle Check Function
-    const handleCheck = (e, id) => {
-        const newArr = todos.map((item, index) => {
-            if(index === id) {
+    const handleCheck = (e, task) => {
+        const newArr = todos.map((item) => {
+            if(item.task === task) {
                 return {
                     ...item,
                     isChecked: e.target.checked
                 }
             }
-            return item
+           return item
         })
 
         // Save checked todos in state

@@ -5,9 +5,9 @@ export const TodoItem = ({ filterTodos, handleCheck, deleteTodo }) => {
 		<div className="item">
 			{filterTodos.map(({task, isChecked}, index) => (
 				<p key={index}>
-					<input type="checkbox" id='checkbox' checked={isChecked} onChange={(e) => handleCheck(e, index)} />
+					<input type="checkbox" id='checkbox' checked={isChecked} onChange={(e) => handleCheck(e, task)} />
 					<span>{task}</span>
-					<FaTimes className="delete-icon" onClick={() => deleteTodo(index)} />
+					<FaTimes className="delete-icon" onClick={() => deleteTodo(task)} />
 				</p>
 			))}
 		</div>
